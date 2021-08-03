@@ -1,0 +1,4 @@
+join-message:
+  - "&e[<r:0.5:1.0>%player_displayname%](hover: &cHello, there!) &7joined the range."
+leave-message:
+  - "&e[<r:0.5:1.0>%player_displayname%](hover: &cHello, there!) &7left the range."
