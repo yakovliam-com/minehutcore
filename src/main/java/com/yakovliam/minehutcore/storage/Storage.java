@@ -4,7 +4,6 @@ import com.yakovliam.minehutcore.MineHutCorePlugin;
 import com.yakovliam.minehutcore.storage.implementation.StorageImplementation;
 import com.yakovliam.minehutcore.storage.implementation.json.JsonStorageImplementation;
 import com.yakovliam.minehutcore.user.MHCUser;
-import org.spongepowered.configurate.serialize.SerializationException;
 
 import java.util.UUID;
 

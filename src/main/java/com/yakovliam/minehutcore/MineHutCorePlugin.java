@@ -4,6 +4,7 @@ import com.yakovliam.minehutcore.api.AbstractMineHutCorePlugin;
 import com.yakovliam.minehutcore.api.message.Message;
 import com.yakovliam.minehutcore.command.CommandManager;
 import com.yakovliam.minehutcore.config.MHCConfig;
+import com.yakovliam.minehutcore.expansion.MineHutCoreExpansion;
 import com.yakovliam.minehutcore.listener.DeathListener;
 import com.yakovliam.minehutcore.listener.PlayerListener;
 import com.yakovliam.minehutcore.message.Messages;
@@ -67,6 +68,9 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
 
         new TopDeathsStatistic(this, offline).register();
         new TopKillsStatistic(this, offline).register();
+
+        // register expansion
+        new MineHutCoreExpansion(this).register();
     }
 
     /**

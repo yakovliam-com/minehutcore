@@ -1,4 +1,4 @@
 join-message:
-  - "&a+ &e[<r:0.5:1.0>%player_displayname%](hover: &cHello, there!)"
+  - "&7+ &e[<g:#9d50bb:#6e48aa>%player_displayname%](hover: &cHello, there!)"
 leave-message:
-  - "&c- &e[<r:0.5:1.0>%player_displayname%](hover: &cHello, there!)"
+  - "&7- &e[<g:#485563:#29323c>%player_displayname%](hover: &cHello, there!)"

@@ -94,7 +94,7 @@ public class MHCUser {
      *
      * @return kdr
      */
-    private double calculateKDR() {
+    public double calculateKDR() {
         int kills = getKills();
         int deaths = getDeaths();
 
