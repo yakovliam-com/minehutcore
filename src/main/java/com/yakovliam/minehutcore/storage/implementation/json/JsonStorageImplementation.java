@@ -47,7 +47,7 @@ public class JsonStorageImplementation extends StorageImplementation {
         ConfigurationNode usersNode = usersConfigurationProvider.root().node("users");
 
         // get list
-        List<MHCUser> users = null;
+        List<MHCUser> users;
         try {
             users = usersNode.getList(MHCUser.class);
         } catch (SerializationException e) {
@@ -96,7 +96,7 @@ public class JsonStorageImplementation extends StorageImplementation {
         ConfigurationNode usersNode = usersConfigurationProvider.root().node("users");
 
         // get list
-        MHCUser user = null;
+        MHCUser user;
         try {
             user = usersNode.getList(MHCUser.class).stream()
                     .filter(u -> u.getUuid().equals(uuid))

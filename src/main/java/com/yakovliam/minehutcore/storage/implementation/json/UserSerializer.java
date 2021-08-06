@@ -7,6 +7,7 @@ import org.spongepowered.configurate.serialize.SerializationException;
 import org.spongepowered.configurate.serialize.TypeSerializer;
 
 import java.lang.reflect.Type;
+import java.util.UUID;
 
 public class UserSerializer implements TypeSerializer<MHCUser> {
 
@@ -22,7 +23,11 @@ public class UserSerializer implements TypeSerializer<MHCUser> {
      */
     @Override
     public MHCUser deserialize(Type type, ConfigurationNode node) throws SerializationException {
-        return null;
+        UUID uuid = UUID.fromString(node.node("uuid").getString());
+        int kills = node.node("kills").getInt();
+        int deaths = node.node("deaths").getInt();
+
+        return new MHCUser(uuid, kills, deaths);
     }
 
     /**
@@ -36,6 +41,8 @@ public class UserSerializer implements TypeSerializer<MHCUser> {
      */
     @Override
     public void serialize(Type type, @Nullable MHCUser obj, ConfigurationNode node) throws SerializationException {
-
+        node.node("uuid").set(obj.getUuid());
+        node.node("kills").set(obj.getKills());
+        node.node("deaths").set(obj.getDeaths());
     }
 }
