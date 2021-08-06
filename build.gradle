@@ -50,6 +50,8 @@ dependencies {
     implementation "me.mattstudios:triumph-msg-adventure:2.2.4-SNAPSHOT"
 
     implementation "org.spongepowered:configurate-gson:4.0.0"
+
+    compileOnly files('libs/SpaceStatistics-1.0.1-SNAPSHOT.jar')
 }
 
 test {
