@@ -5,3 +5,5 @@ author: yakovliam
 website: https://yakovliam.com
 main: com.yakovliam.minehutcore.MineHutCorePlugin
 api-version: 1.17
+depend:
+  - ProtocolLib
