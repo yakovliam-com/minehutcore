@@ -48,4 +48,9 @@ public class Messages {
             .addLine("&aYou sold &f%tokens% &afor &f$%paid%&a.")
             .build();
 
+    // token cant exchange
+    public Message tokenCantExchange = Message.builder()
+            .addLine("&cYou can't exchange that amount!")
+            .build();
+
 }

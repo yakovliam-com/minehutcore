@@ -43,6 +43,12 @@ public class TokenCommand extends AbstractMHCCommand {
     @Subcommand("buy")
     @Description("Buys token for an exchange amount")
     public void onBuy(Player player, @Single Integer amountOfTokens) {
+        // if amount is negative or 0
+        if (amountOfTokens <= 0) {
+            plugin.getMessages().tokenCantExchange.message(player);
+            return;
+        }
+
         TokenConversionRate tokenConversionRate = MHCConfigKeys.TOKEN_CONVERSION_RATE.get(plugin.getMhcConfig().getAdapter());
 
         // find amount of money needed
@@ -71,6 +77,12 @@ public class TokenCommand extends AbstractMHCCommand {
     @Subcommand("sell")
     @Description("Sells tokens for an exchange amount")
     public void onSell(Player player, @Single Integer amountOfTokens) {
+        // if amount is negative or 0
+        if (amountOfTokens <= 0) {
+            plugin.getMessages().tokenCantExchange.message(player);
+            return;
+        }
+
         // get amount of tokens
         int amountInInventory = TokenUtil.getPlayerTokensInInventory(player);
 
