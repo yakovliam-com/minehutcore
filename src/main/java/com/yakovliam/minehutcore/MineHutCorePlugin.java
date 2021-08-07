@@ -42,6 +42,16 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     private Messages messages;
 
+    /**
+     * Top deaths statistics
+     */
+    private TopDeathsStatistic topDeathsStatistic;
+
+    /**
+     * Top kills statistic
+     */
+    private TopKillsStatistic topKillsStatistic;
+
     @Override
     public void onEnable() {
         Message.initAudience(this);
@@ -66,8 +76,10 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
                 .map(OfflinePlayer::getUniqueId)
                 .collect(Collectors.toSet());
 
-        new TopDeathsStatistic(this, offline).register();
-        new TopKillsStatistic(this, offline).register();
+        this.topDeathsStatistic = new TopDeathsStatistic(this, offline);
+        topDeathsStatistic.register();
+        this.topKillsStatistic = new TopKillsStatistic(this, offline);
+        topKillsStatistic.register();
 
         // register expansion
         new MineHutCoreExpansion(this).register();
@@ -107,5 +119,23 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     public Messages getMessages() {
         return messages;
+    }
+
+    /**
+     * Returns top deaths statistic
+     *
+     * @return top deaths
+     */
+    public TopDeathsStatistic getTopDeathsStatistic() {
+        return topDeathsStatistic;
+    }
+
+    /**
+     * Returns top kills statistic
+     *
+     * @return top kills
+     */
+    public TopKillsStatistic getTopKillsStatistic() {
+        return topKillsStatistic;
     }
 }
