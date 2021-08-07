@@ -35,7 +35,7 @@ public class Messages {
 
     // token buy not enough
     public Message tokenSellNotEnough = Message.builder()
-            .addLine("&cYou need &f$%need% tokens &cto sell, &cand you only have &f%have%&c!")
+            .addLine("&cYou need &f%need% tokens &cto sell, &cand you only have &f%have%&c!")
             .build();
 
     // token bought
