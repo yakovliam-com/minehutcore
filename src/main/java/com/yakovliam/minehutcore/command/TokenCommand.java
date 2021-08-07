@@ -37,7 +37,7 @@ public class TokenCommand extends AbstractMHCCommand {
 
         plugin.getMessages().tokenExchange.message(player,
                 "%tokens%", Integer.toString(tokenConversionRate.getTokensPer()),
-                "%amount%", NumberUtil.formatToTwoDecimalPlaces(tokenConversionRate.getTokensPer()));
+                "%amount%", NumberUtil.formatToTwoDecimalPlaces(tokenConversionRate.getCost()));
     }
 
     @Subcommand("buy")
