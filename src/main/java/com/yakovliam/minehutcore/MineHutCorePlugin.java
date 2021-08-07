@@ -10,6 +10,7 @@ import com.yakovliam.minehutcore.listener.PlayerListener;
 import com.yakovliam.minehutcore.message.Messages;
 import com.yakovliam.minehutcore.statistic.TopDeathsStatistic;
 import com.yakovliam.minehutcore.statistic.TopKillsStatistic;
+import com.yakovliam.minehutcore.statistic.task.StatisticUpdateTask;
 import com.yakovliam.minehutcore.storage.Storage;
 import com.yakovliam.minehutcore.user.UserCache;
 import net.milkbowl.vault.economy.Economy;
@@ -95,6 +96,9 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
         if (!setupEconomy()) {
             getLogger().severe("Not able to find an Economy provider!");
         }
+
+        // statistics update task
+        new StatisticUpdateTask(this).start();
     }
 
     /**
