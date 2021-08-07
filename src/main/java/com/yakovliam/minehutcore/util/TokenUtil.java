@@ -33,13 +33,7 @@ public class TokenUtil {
             return false;
         }
 
-        if (itemMeta.getItemFlags().stream()
-                .noneMatch(f -> f == ItemFlag.HIDE_ENCHANTS)) {
-            return false;
-        }
-
-        return itemMeta.getEnchants().keySet().stream()
-                .anyMatch(e -> e == Enchantment.DURABILITY);
+        return itemMeta.getEnchantLevel(Enchantment.DURABILITY) == 1;
     }
 
     /**

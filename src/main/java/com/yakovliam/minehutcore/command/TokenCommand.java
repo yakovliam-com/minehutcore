@@ -107,7 +107,7 @@ public class TokenCommand extends AbstractMHCCommand {
 
         plugin.getMessages().tokenSold.message(player,
                 "%tokens%", Integer.toString(amountOfTokens),
-                "%paid%", NumberUtil.formatToTwoDecimalPlaces(amountInInventory));
+                "%paid%", NumberUtil.formatToTwoDecimalPlaces(amountOfMoneyToGive));
     }
 
     @Default
