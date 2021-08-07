@@ -12,8 +12,10 @@ import com.yakovliam.minehutcore.statistic.TopDeathsStatistic;
 import com.yakovliam.minehutcore.statistic.TopKillsStatistic;
 import com.yakovliam.minehutcore.storage.Storage;
 import com.yakovliam.minehutcore.user.UserCache;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -52,6 +54,11 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     private TopKillsStatistic topKillsStatistic;
 
+    /**
+     * Economy
+     */
+    private Economy economy;
+
     @Override
     public void onEnable() {
         Message.initAudience(this);
@@ -83,6 +90,11 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
 
         // register expansion
         new MineHutCoreExpansion(this).register();
+
+        // setup economy
+        if (!setupEconomy()) {
+            getLogger().severe("Not able to find an Economy provider!");
+        }
     }
 
     /**
@@ -137,5 +149,34 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     public TopKillsStatistic getTopKillsStatistic() {
         return topKillsStatistic;
+    }
+
+    /**
+     * Returns economy
+     *
+     * @return economy
+     */
+    public Economy getEconomy() {
+        return economy;
+    }
+
+    /**
+     * Sets up economy
+     *
+     * @return economy
+     */
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+
+        this.economy = rsp.getProvider();
+
+        return true;
     }
 }

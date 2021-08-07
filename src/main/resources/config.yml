@@ -2,3 +2,7 @@ join-message:
   - "&7+ &e[<g:#9d50bb:#6e48aa>%player_displayname%](hover: &cHello, there!)"
 leave-message:
   - "&7- &e[<g:#485563:#29323c>%player_displayname%](hover: &cHello, there!)"
+token:
+  # 1 token for every $1000
+  conversion-rate: "1:1000"
+  give-command: "give %player_name% amethyst_shard %amount% name:&dToken durability:1 ItemFlags:HIDE_ENCHANTS"

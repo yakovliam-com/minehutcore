@@ -1,7 +1,6 @@
 package com.yakovliam.minehutcore.command;
 
 import co.aikar.commands.CommandHelp;
-import co.aikar.commands.annotation.CatchUnknown;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
@@ -12,7 +11,7 @@ import com.yakovliam.minehutcore.api.message.Message;
 import org.bukkit.command.CommandSender;
 
 @CommandAlias("mhc")
-@CommandPermission("minehutcore.command")
+@CommandPermission("minehutcore.command.mhc")
 public class MHCCommand extends AbstractMHCCommand {
 
     /**
@@ -29,6 +28,7 @@ public class MHCCommand extends AbstractMHCCommand {
     }
 
     @Subcommand("reload")
+    @CommandPermission("minehutcore.command.mhc.reload")
     public void onReload(CommandSender sender) {
         // reload config
         plugin.getMhcConfig().reload();

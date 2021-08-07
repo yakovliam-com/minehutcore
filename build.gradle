@@ -27,6 +27,7 @@ repositories {
     maven { url = 'https://libraries.minecraft.net/' }
     maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
     maven { url = 'https://repo.dmulloy2.net/repository/public/' }
+    maven { url = 'https://jitpack.io' }
 }
 
 dependencies {
@@ -54,6 +55,7 @@ dependencies {
     implementation "org.spongepowered:configurate-gson:4.0.0"
 
     compileOnly files('libs/SpaceStatistics-1.0.1-SNAPSHOT.jar')
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
 }
 
 test {

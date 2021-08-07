@@ -6,7 +6,6 @@ import com.yakovliam.minehutcore.MineHutCorePlugin;
 import org.bukkit.ChatColor;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class CommandManager extends BukkitCommandManager {
 
@@ -22,8 +21,9 @@ public class CommandManager extends BukkitCommandManager {
         setFormat(MessageType.SYNTAX, ChatColor.GRAY);
 
         // TODO add more commands here, registering them
-        Collections.singletonList(
-                new MHCCommand(plugin)
+        Arrays.asList(
+                new MHCCommand(plugin),
+                new TokenCommand(plugin)
         ).forEach(c -> {
             c.registerCompletions();
             this.registerCommand(c);
