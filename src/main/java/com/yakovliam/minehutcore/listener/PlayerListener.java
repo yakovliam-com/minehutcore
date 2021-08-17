@@ -51,8 +51,9 @@ public class PlayerListener implements Listener {
         plugin.getUserCache().getCache().get(event.getPlayer().getUniqueId());
 
         // add player to statistics
-        plugin.getTopDeathsStatistic().update(Collections.singleton(event.getPlayer().getUniqueId()), true);
-        plugin.getTopKillsStatistic().update(Collections.singleton(event.getPlayer().getUniqueId()), true);
+//        plugin.getTopDeathsStatistic().update(Collections.singleton(event.getPlayer().getUniqueId()), true);
+//        plugin.getTopKillsStatistic().update(Collections.singleton(event.getPlayer().getUniqueId()), true);
+        plugin.getTopBalancesStatistic().update(Collections.singleton(event.getPlayer().getUniqueId()), true);
 
         getJoinMessage(event.getPlayer()).broadcast();
     }

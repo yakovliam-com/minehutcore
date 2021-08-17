@@ -8,6 +8,7 @@ import com.yakovliam.minehutcore.expansion.MineHutCoreExpansion;
 import com.yakovliam.minehutcore.listener.DeathListener;
 import com.yakovliam.minehutcore.listener.PlayerListener;
 import com.yakovliam.minehutcore.message.Messages;
+import com.yakovliam.minehutcore.statistic.TopBalanceStatistic;
 import com.yakovliam.minehutcore.statistic.TopDeathsStatistic;
 import com.yakovliam.minehutcore.statistic.TopKillsStatistic;
 import com.yakovliam.minehutcore.statistic.task.StatisticUpdateTask;
@@ -45,15 +46,20 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     private Messages messages;
 
-    /**
-     * Top deaths statistics
-     */
-    private TopDeathsStatistic topDeathsStatistic;
+//    /**
+//     * Top deaths statistics
+//     */
+//    private TopDeathsStatistic topDeathsStatistic;
+//
+//    /**
+//     * Top kills statistic
+//     */
+//    private TopKillsStatistic topKillsStatistic;
 
     /**
-     * Top kills statistic
+     * Top balances statistic
      */
-    private TopKillsStatistic topKillsStatistic;
+    private TopBalanceStatistic topBalancesStatistic;
 
     /**
      * Economy
@@ -83,11 +89,14 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
         Set<UUID> offline = Arrays.stream(Bukkit.getOfflinePlayers())
                 .map(OfflinePlayer::getUniqueId)
                 .collect(Collectors.toSet());
+//
+//        this.topDeathsStatistic = new TopDeathsStatistic(this, offline);
+//        topDeathsStatistic.register();
+//        this.topKillsStatistic = new TopKillsStatistic(this, offline);
+//        topKillsStatistic.register();
+        this.topBalancesStatistic = new TopBalanceStatistic(this, offline);
+        topBalancesStatistic.register();
 
-        this.topDeathsStatistic = new TopDeathsStatistic(this, offline);
-        topDeathsStatistic.register();
-        this.topKillsStatistic = new TopKillsStatistic(this, offline);
-        topKillsStatistic.register();
 
         // register expansion
         new MineHutCoreExpansion(this).register();
@@ -137,22 +146,32 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
         return messages;
     }
 
-    /**
-     * Returns top deaths statistic
-     *
-     * @return top deaths
-     */
-    public TopDeathsStatistic getTopDeathsStatistic() {
-        return topDeathsStatistic;
-    }
+//    /**
+//     * Returns top deaths statistic
+//     *
+//     * @return top deaths
+//     */
+//    public TopDeathsStatistic getTopDeathsStatistic() {
+//        return topDeathsStatistic;
+//    }
+//
+//    /**
+//     * Returns top kills statistic
+//     *
+//     * @return top kills
+//     */
+//    public TopKillsStatistic getTopKillsStatistic() {
+//        return topKillsStatistic;
+//    }
+
 
     /**
-     * Returns top kills statistic
+     * Returns top balances statistic
      *
-     * @return top kills
+     * @return top balances statistic
      */
-    public TopKillsStatistic getTopKillsStatistic() {
-        return topKillsStatistic;
+    public TopBalanceStatistic getTopBalancesStatistic() {
+        return topBalancesStatistic;
     }
 
     /**

@@ -24,7 +24,8 @@ public class StatisticUpdateTask extends RepeatingTask {
      */
     @Override
     public void run() {
-        plugin.getTopDeathsStatistic().update(Collections.emptySet(), false, true);
-        plugin.getTopKillsStatistic().update(Collections.emptySet(), false, true);
+        plugin.getTopBalancesStatistic().update(Collections.emptySet(), false, true);
+//        plugin.getTopDeathsStatistic().update(Collections.emptySet(), false, true);
+//        plugin.getTopKillsStatistic().update(Collections.emptySet(), false, true);
     }
 }

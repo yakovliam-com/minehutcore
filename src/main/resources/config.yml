@@ -1,7 +1,7 @@
 join-message:
-  - "&7+ &e[<g:#9d50bb:#6e48aa>%player_displayname%](hover: &cHello, there!)"
+  - "&7+ %vault_prefix% &8| &7%player_displayname%"
 leave-message:
-  - "&7- &e[<g:#485563:#29323c>%player_displayname%](hover: &cHello, there!)"
+  - "&7- %vault_prefix% &8| &7%player_displayname%"
 token:
   # 1 token for every $1000
   conversion-rate: "1:1000"
