@@ -32,6 +32,11 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
     private MHCConfig mhcConfig;
 
     /**
+     * Lang config
+     */
+    private MHCConfig langConfig;
+
+    /**
      * Storage
      */
     private Storage storage;
@@ -46,15 +51,15 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     private Messages messages;
 
-//    /**
-//     * Top deaths statistics
-//     */
-//    private TopDeathsStatistic topDeathsStatistic;
-//
-//    /**
-//     * Top kills statistic
-//     */
-//    private TopKillsStatistic topKillsStatistic;
+    /**
+     * Top deaths statistics
+     */
+    private TopDeathsStatistic topDeathsStatistic;
+
+    /**
+     * Top kills statistic
+     */
+    private TopKillsStatistic topKillsStatistic;
 
     /**
      * Top balances statistic
@@ -71,6 +76,7 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
         Message.initAudience(this);
 
         this.mhcConfig = new MHCConfig(this, provideConfigAdapter("config.yml"));
+        this.langConfig = new MHCConfig(this, provideConfigAdapter("lang.yml"));
 
         this.getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         this.getServer().getPluginManager().registerEvents(new DeathListener(this), this);
@@ -83,17 +89,17 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
         // initialize caches
         this.userCache = new UserCache(this);
 
-        this.messages = new Messages();
+        loadMessages();
 
         // register statistics
         Set<UUID> offline = Arrays.stream(Bukkit.getOfflinePlayers())
                 .map(OfflinePlayer::getUniqueId)
                 .collect(Collectors.toSet());
-//
-//        this.topDeathsStatistic = new TopDeathsStatistic(this, offline);
-//        topDeathsStatistic.register();
-//        this.topKillsStatistic = new TopKillsStatistic(this, offline);
-//        topKillsStatistic.register();
+
+        this.topDeathsStatistic = new TopDeathsStatistic(this, offline);
+        topDeathsStatistic.register();
+        this.topKillsStatistic = new TopKillsStatistic(this, offline);
+        topKillsStatistic.register();
         this.topBalancesStatistic = new TopBalanceStatistic(this, offline);
         topBalancesStatistic.register();
 
@@ -146,23 +152,23 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
         return messages;
     }
 
-//    /**
-//     * Returns top deaths statistic
-//     *
-//     * @return top deaths
-//     */
-//    public TopDeathsStatistic getTopDeathsStatistic() {
-//        return topDeathsStatistic;
-//    }
-//
-//    /**
-//     * Returns top kills statistic
-//     *
-//     * @return top kills
-//     */
-//    public TopKillsStatistic getTopKillsStatistic() {
-//        return topKillsStatistic;
-//    }
+    /**
+     * Returns top deaths statistic
+     *
+     * @return top deaths
+     */
+    public TopDeathsStatistic getTopDeathsStatistic() {
+        return topDeathsStatistic;
+    }
+
+    /**
+     * Returns top kills statistic
+     *
+     * @return top kills
+     */
+    public TopKillsStatistic getTopKillsStatistic() {
+        return topKillsStatistic;
+    }
 
 
     /**
@@ -172,6 +178,22 @@ public class MineHutCorePlugin extends AbstractMineHutCorePlugin {
      */
     public TopBalanceStatistic getTopBalancesStatistic() {
         return topBalancesStatistic;
+    }
+
+    /**
+     * Returns lang config
+     *
+     * @return lang config
+     */
+    public MHCConfig getLangConfig() {
+        return langConfig;
+    }
+
+    /**
+     * Loads messages
+     */
+    public void loadMessages() {
+        this.messages = new Messages(this);
     }
 
     /**

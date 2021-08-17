@@ -7,7 +7,6 @@ import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.HelpCommand;
 import co.aikar.commands.annotation.Subcommand;
 import com.yakovliam.minehutcore.MineHutCorePlugin;
-import com.yakovliam.minehutcore.api.message.Message;
 import org.bukkit.command.CommandSender;
 
 @CommandAlias("mhc")
@@ -32,20 +31,16 @@ public class MHCCommand extends AbstractMHCCommand {
     public void onReload(CommandSender sender) {
         // reload config
         plugin.getMhcConfig().reload();
+        plugin.getLangConfig().reload();
+        plugin.loadMessages();
 
-        Message.builder()
-                .addLine("&7Reloaded")
-                .build()
-                .message(sender);
+        plugin.getMessages().mhcReloaded.message(sender);
     }
 
     @Default
     @HelpCommand
     public void onDefault(CommandSender sender, CommandHelp help) {
-        Message.builder()
-                .addLine("&7MHC Help:")
-                .build()
-                .message(sender);
+        plugin.getMessages().mhcHelp.message(sender);
         help.showHelp();
     }
 }

@@ -9,4 +9,5 @@ depend:
   - SpaceStatistics
   - ProtocolLib
   - Vault
+  - Essentials
 

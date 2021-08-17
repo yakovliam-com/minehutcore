@@ -1,0 +1,25 @@
+mhc:
+  reloaded:
+    - "&7Reloaded."
+  help:
+    - "&7Help"
+killed-player:
+  - "&7You killed &f%target%&7."
+died:
+  - "&7You were killed by &f%killer%&7."
+token:
+  exchange:
+    - "&f%tokens% &7token(s) goes for &f$%amount%"
+  buy:
+    not-enough:
+      - "&cYou need &f$%need% &cto buy &f%amount% &cand you only have &f%have%&c!"
+    bought:
+      - "&aYou bought &f%tokens% &afor &f$%cost%&a."
+  sell:
+    not-enough:
+      - "&cYou need &f%need% tokens &cto sell, &cand you only have &f%have%&c!"
+    sold:
+      - "&aYou sold &f%tokens% &afor &f$%paid%&a."
+  cant-exchange:
+    - "&cYou can't exchange that amount!"
+

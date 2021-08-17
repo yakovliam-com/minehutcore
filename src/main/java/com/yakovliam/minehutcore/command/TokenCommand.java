@@ -70,7 +70,7 @@ public class TokenCommand extends AbstractMHCCommand {
         // give tokens
         TokenUtil.givePlayerTokens(plugin, player, amountOfTokens);
 
-        plugin.getMessages().tokenBought.message(player, "%tokens%", Integer.toString(amountOfTokens),
+        plugin.getMessages().tokenBuyBought.message(player, "%tokens%", Integer.toString(amountOfTokens),
                 "%cost%", NumberUtil.formatToTwoDecimalPlaces(amountOfMoneyNeeded));
     }
 
@@ -105,7 +105,7 @@ public class TokenCommand extends AbstractMHCCommand {
         // deposit
         plugin.getEconomy().depositPlayer(player, amountOfMoneyToGive);
 
-        plugin.getMessages().tokenSold.message(player,
+        plugin.getMessages().tokenSellSold.message(player,
                 "%tokens%", Integer.toString(amountOfTokens),
                 "%paid%", NumberUtil.formatToTwoDecimalPlaces(amountOfMoneyToGive));
     }
